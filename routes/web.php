@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VouchersController;
+use App\Http\Controllers\RedeemController;
+use App\Models\Vouchers;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [VouchersController::class,'generate'])->name('generate');
+Route::get('voucher', [VouchersController::class,'index'])->name('voucher.index');
+Route::post('voucher/store', [VouchersController::class,'store'])->name('voucher.store');
+Route::post('voucher/{id}', [VouchersController::class,'update'])->name('voucher.update');
+Route::get('voucher/{phone}', [VouchersController::class,'item'])->name('voucher.item');

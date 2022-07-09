@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Vouchers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Alert;
 
 class VouchersController extends Controller
 {
@@ -12,9 +14,14 @@ class VouchersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function generate(){
+        return view('index');
+    }
+
     public function index()
     {
-        //
+        $data = Vouchers::all();
+        return view('voucher.index',compact('data'));
     }
 
     /**
@@ -35,7 +42,26 @@ class VouchersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $voucher = Vouchers::where('phone',$request->phone)->count();
+        if ($voucher > 0) {
+            Alert::error('Sorry', 'You have got a voucher');
+            return redirect()->back();
+        } else {
+            $data = new Vouchers;
+            $data->code = 'BS'.$request->phone;
+            $data->name = $request->name;
+            $data->phone = $request->phone;
+            $data->status = 'available';
+            $data->created_at = Carbon::now('GMT')->format('Y-m-d H:i:s');
+            $data->save();
+            toast('Yay! you get a voucher','success');
+            return redirect('voucher/'.$request->phone);
+        }
+    }
+
+    public function item($phone){
+        $data = Vouchers::where('phone',$phone)->get();
+        return view('voucher.item', compact('data'));
     }
 
     /**
@@ -67,9 +93,12 @@ class VouchersController extends Controller
      * @param  \App\Models\Vouchers  $vouchers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vouchers $vouchers)
+    public function update(Request $request)
     {
-        //
+        $data = Vouchers::find($request->id);
+        $data->status = $request->update;
+        $data->save();
+        return redirect()->back();
     }
 
     /**
