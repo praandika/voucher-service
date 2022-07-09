@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.main')
 @section('title','Your Voucher')
 
 @section('content')

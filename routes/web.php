@@ -25,3 +25,7 @@ Route::get('voucher', [VouchersController::class,'index'])->name('voucher.index'
 Route::post('voucher/store', [VouchersController::class,'store'])->name('voucher.store');
 Route::post('voucher/{id}', [VouchersController::class,'update'])->name('voucher.update');
 Route::get('voucher/{phone}', [VouchersController::class,'item'])->name('voucher.item');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

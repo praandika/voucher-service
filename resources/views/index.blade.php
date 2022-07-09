@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.main')
 @section('title','Voucher Service Bisma')
 
 @section('content')
