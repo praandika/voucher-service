@@ -21,10 +21,13 @@ use App\Models\Vouchers;
 // });
 
 Route::get('/', [VouchersController::class,'generate'])->name('generate');
-Route::get('voucher', [VouchersController::class,'index'])->name('voucher.index');
+Route::get('voucher', [VouchersController::class,'index'])->name('voucher.index')->middleware('auth.basic');
 Route::post('voucher/store', [VouchersController::class,'store'])->name('voucher.store');
 Route::post('voucher/{id}', [VouchersController::class,'update'])->name('voucher.update');
 Route::get('voucher/{phone}', [VouchersController::class,'item'])->name('voucher.item');
+// NEW !!
+Route::post('scanned/{code}', [VouchersController::class,'scanned'])->name('voucher.scanned');
+Route::get('redeemed/{code}', [VouchersController::class,'redeemed'])->name('voucher.redeemed');
 
 Auth::routes();
 
