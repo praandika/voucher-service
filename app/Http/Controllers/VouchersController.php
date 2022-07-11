@@ -103,16 +103,16 @@ class VouchersController extends Controller
 
     // NEW !!
     public function scanned($code){
-        $data = Vouchers::find($code);
-        $data->status = 'redeemed';
-        $data->save();
+        $data = Vouchers::where('code', $code)->update([
+            'status' => 'redeemed',
+        ]);
         return redirect('redeemed/'.$code);
     }
 
     // NEW !!
     public function redeemed($code){
-        $data = Vouchers::find($code);
-        return view('voucher.redeemed');
+        $data = Vouchers::where('code', $code)->get();
+        return view('voucher.redeemed', compact('data'));
     }
 
     /**
