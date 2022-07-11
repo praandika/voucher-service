@@ -13,7 +13,7 @@
     </form>
 
     <div class="table-responsive">
-        <table id="dataTable" class="table table-sm table-hover">
+        <table id="myTable" class="table table-sm table-hover">
             <thead class="table-dark">
                 <tr>
                     <th>#</th>
