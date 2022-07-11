@@ -20,7 +20,7 @@ class VouchersController extends Controller
 
     public function index()
     {
-        $data = Vouchers::all();
+        $data = Vouchers::orderBy('created_at','desc')->get();
         return view('voucher.index',compact('data'));
     }
 
@@ -103,10 +103,21 @@ class VouchersController extends Controller
 
     // NEW !!
     public function scanned($code){
-        $data = Vouchers::where('code', $code)->update([
-            'status' => 'redeemed',
-        ]);
-        return redirect('redeemed/'.$code);
+        $cek = Vouchers::where([
+            ['code', $code],
+            ['status', 'available'],
+        ])->count();
+        
+        if ($cek > 0) {
+            $data = Vouchers::where('code', $code)->update([
+                'status' => 'redeemed',
+            ]);
+            return redirect('redeemed/'.$code);
+        }else{
+            Alert::error('Sorry', 'Your voucher has been redeemed');
+            return redirect()->route('generate');
+        }
+        
     }
 
     // NEW !!

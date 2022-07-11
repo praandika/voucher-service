@@ -3,6 +3,15 @@
 
 @section('content')
 <div class="container">
+    <a class="dropdown-item" href="{{ route('logout') }}" style="color: red; margin-bottom: 20px;"
+        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        <i class="nav-icon fas fa-sign-out-alt"></i>
+        {{ __('Logout') }}
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+
     <div class="table-responsive">
         <table id="dataTable" class="table table-sm table-hover">
             <thead class="table-dark">
@@ -27,8 +36,10 @@
                     <td>
                         <form action="{{ route('voucher.update', $o->id) }}" method="post">
                             @csrf
-                            <input type="hidden" name="update" value="{{ $o->status == 'available' ? 'redeemed' : 'available' }}">
-                            <button type="submit" class="btn btn-success" data-bs-toggle="tooltip" title="Change Status"><i class="bi bi-arrow-repeat"></i></button>
+                            <input type="hidden" name="update"
+                                value="{{ $o->status == 'available' ? 'redeemed' : 'available' }}">
+                            <button type="submit" class="btn btn-success" data-bs-toggle="tooltip"
+                                title="Change Status"><i class="bi bi-arrow-repeat"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -51,5 +62,5 @@
         </table>
     </div>
 </div>
-    
+
 @endsection

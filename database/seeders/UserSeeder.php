@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         \App\Models\User::insert([
             [
                 'name' => 'Admin',
+                'email' => 'admin@admin.com',
                 'username' => 'admin',
                 'password' => Hash::make('bismagroup'),
                 'created_at' => Carbon::now('GMT+8')->format('Y-m-d H:i:s'),
