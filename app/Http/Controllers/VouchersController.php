@@ -48,7 +48,7 @@ class VouchersController extends Controller
             return redirect()->back();
         } else {
             $data = new Vouchers;
-            $data->code = 'BS'.$request->dk.$request->no.$request->kode;
+            $data->code = 'BS'.strtoupper($request->dk.$request->no.$request->kode);
             $data->name = ucwords($request->name);
             $data->phone = $request->phone;
             $data->plate_no = strtoupper($request->dk.' '.$request->no.' '.$request->kode);
