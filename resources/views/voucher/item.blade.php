@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="d-flex justify-content-center">
-    <div class="voucher" style="margin-top: 15px; margin-bottom: 15px; background: linear-gradient(175deg, rgba(255,255,255,1) 45%, rgba(0,93,207,1) 74%, rgba(0,255,209,1) 100%); padding: 15px; border-radius: 20px; position: relative; height: 705px;">
+    <div class="voucher" style="margin-top: 15px; margin-bottom: 15px; background: linear-gradient(175deg, rgba(255,255,255,1) 45%, rgba(0,93,207,1) 74%, rgba(0,255,209,1) 100%); padding: 15px; border-radius: 20px; position: relative; height: 715px;">
     <p style="color: red; font-size: 12px; text-align: center;">Screenshoot halaman ini dan tunjukan saat registrasi</p>
         @forelse($data as $o)
         <!-- QR Code -->
