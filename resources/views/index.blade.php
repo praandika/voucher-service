@@ -14,34 +14,33 @@ box-shadow: 2px 2px 7px 3px rgba(240,240,240,1); border-radius: 20px; margin-top
         <div class="garis" style="width: 100%; border: 1px dashed #BEBEBE; margin-bottom: 20px;"></div>
         <form action="{{ route('voucher.store') }}" method="post" enctype="multipart/form-data">
             @csrf
+            <div class="row">
+                <div class="mb-3 col-4">
+                    <label for="Phone" class="form-label">Kode Plat</label>
+                    <input type="text" name="dk" class="form-control" id="Phone" placeholder="DK"
+                        style="text-transform:uppercase" required>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="Phone" class="form-label">Nomor</label>
+                    <input type="number" name="no" class="form-control" id="Phone" placeholder="xxxx" required>
+                </div>
+                <div class="mb-3 col-4">
+                    <label for="Phone" class="form-label">Kode Daerah</label>
+                    <input type="text" name="kode" class="form-control" id="Phone" placeholder="ABC"
+                        style="text-transform:uppercase" required>
+                </div>
+            </div>
+
             <div class="mb-3">
                 <label for="Name" class="form-label">Nama</label>
                 <input type="text" name="name" class="form-control" id="Name" placeholder="Masukkan nama Anda"
                     style="text-transform:capitalize" required>
             </div>
+            
             <div class="mb-3">
                 <label for="Phone" class="form-label">Kontak</label>
                 <input type="number" name="phone" class="form-control" id="Phone"
                     placeholder="Masukkan nomor HP/WA Anda" required>
-            </div>
-            <div class="row">
-                <fieldset>
-                    <legend>Plat Nomor</legend>
-                    <div class="mb-3 col-4">
-                        <label for="Phone" class="form-label">Kode Plat</label>
-                        <input type="text" name="dk" class="form-control" id="Phone" placeholder="DK"
-                            style="text-transform:uppercase" required>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <label for="Phone" class="form-label">Nomor</label>
-                        <input type="number" name="no" class="form-control" id="Phone" placeholder="xxxx" required>
-                    </div>
-                    <div class="mb-3 col-4">
-                        <label for="Phone" class="form-label">Kode Daerah</label>
-                        <input type="text" name="kode" class="form-control" id="Phone" placeholder="ABC"
-                            style="text-transform:uppercase" required>
-                    </div>
-                </fieldset>
             </div>
 
             <div class="container-btn">
