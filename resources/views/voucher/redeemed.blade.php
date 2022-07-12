@@ -11,8 +11,8 @@
                 <p>
                     <span style="color: #CCCACA; font-weight: bold;">{{ $o->plate_no }}</span> <br>
                     <span style="color: #CCCACA;">{{ $o->name }}</span> <br>
-                    <p>{{ $o->phone }}</p> <br>
-                    <p>{{ $o->status }}</p>
+                    {{ $o->phone }} <br>
+                    {{ $o->status }}
                 </p>
             @empty
                 <p>voucher's code doesn't exist</p>
