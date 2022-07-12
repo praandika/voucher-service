@@ -18,6 +18,7 @@
                 <tr>
                     <th>#</th>
                     <th>Voucher Code</th>
+                    <th>Plate Number</th>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Status</th>
@@ -30,6 +31,7 @@
                 <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $o->code }}</td>
+                    <td>{{ $o->plate_no }}</td>
                     <td>{{ $o->name }}</td>
                     <td>{{ $o->phone }}</td>
                     <td>{{ $o->status }}</td>
@@ -53,6 +55,7 @@
                 <tr>
                     <th>#</th>
                     <th>Voucher Code</th>
+                    <th>Plate Number</th>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Status</th>
