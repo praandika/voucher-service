@@ -51,6 +51,7 @@ class VouchersController extends Controller
             $data->code = 'BS'.$request->phone;
             $data->name = $request->name;
             $data->phone = $request->phone;
+            $data->plate_no = $request->dk.' '.$request->no.' '.$request->kode;
             $data->status = 'available';
             $data->created_at = Carbon::now('GMT')->format('Y-m-d H:i:s');
             $data->save();
