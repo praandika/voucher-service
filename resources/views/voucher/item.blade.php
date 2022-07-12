@@ -12,11 +12,8 @@
 
         <img src="{{ asset('img/discount.png') }}" alt="Discount Service" srcset="" width="300" style="margin-top: -5px; border-radius: 20px;">
 
-        <div class="value" style="position: relative; bottom: 250px;">
-            <p style="font-size: 40px; text-align: center; font-weight: bold; color: #125D98;">{{ $o->plate_no }}</p>
-        </div>
-
         <div class="value" style="position: relative; bottom: 150px;">
+            <p style="font-size: 20px; text-align: center; font-weight: bold; color: #125D98;">{{ $o->plate_no }}</p>
             <p style="font-size: 70px; text-align: center; font-weight: bold; color: #EFDAD7;">20%</p>
         </div>
 
