@@ -8,6 +8,7 @@
 
         <div class="data" style="position: relative; text-align: center; bottom: 150px; color: #D9D9D9; font-size: 20px;">
             @forelse($data as $o)
+                <p style="color: #CCCACA; font-weight: bold;">{{ $o->plate_no }}</p>
                 <p style="color: #CCCACA;">{{ $o->name }}</p>
                 <p>{{ $o->phone }}</p>
                 <p>{{ $o->status }}</p>
