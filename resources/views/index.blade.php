@@ -25,20 +25,23 @@ box-shadow: 2px 2px 7px 3px rgba(240,240,240,1); border-radius: 20px; margin-top
                     placeholder="Masukkan nomor HP/WA Anda" required>
             </div>
             <div class="row">
-                <div class="mb-3 col-4">
-                    <label for="Phone" class="form-label">Kode Plat No</label>
-                    <input type="text" name="dk" class="form-control" id="Phone" placeholder="DK"
-                        style="text-transform:uppercase" required>
-                </div>
-                <div class="mb-3 col-4">
-                    <label for="Phone" class="form-label">Nomor Plat</label>
-                    <input type="number" name="no" class="form-control" id="Phone" placeholder="xxxx" required>
-                </div>
-                <div class="mb-3 col-4">
-                    <label for="Phone" class="form-label">Kode Daerah</label>
-                    <input type="text" name="kode" class="form-control" id="Phone" placeholder="ABC"
-                        style="text-transform:uppercase" required>
-                </div>
+                <fieldset>
+                    <legend>Plat Nomor</legend>
+                    <div class="mb-3 col-4">
+                        <label for="Phone" class="form-label">Kode Plat</label>
+                        <input type="text" name="dk" class="form-control" id="Phone" placeholder="DK"
+                            style="text-transform:uppercase" required>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="Phone" class="form-label">Nomor</label>
+                        <input type="number" name="no" class="form-control" id="Phone" placeholder="xxxx" required>
+                    </div>
+                    <div class="mb-3 col-4">
+                        <label for="Phone" class="form-label">Kode Daerah</label>
+                        <input type="text" name="kode" class="form-control" id="Phone" placeholder="ABC"
+                            style="text-transform:uppercase" required>
+                    </div>
+                </fieldset>
             </div>
 
             <div class="container-btn">
