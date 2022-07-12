@@ -12,7 +12,7 @@
         @csrf
     </form>
 
-    <div class="table-responsive">
+    <div class="table-responsive-md">
         <table id="myTable" class="table table-sm table-hover">
             <thead class="table-dark">
                 <tr>
