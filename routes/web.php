@@ -24,7 +24,7 @@ Route::get('/', [VouchersController::class,'generate'])->name('generate');
 Route::get('voucher', [VouchersController::class,'index'])->name('voucher.index')->middleware('auth.basic');
 Route::post('voucher/store', [VouchersController::class,'store'])->name('voucher.store');
 Route::post('voucher/{id}', [VouchersController::class,'update'])->name('voucher.update');
-Route::get('voucher/{phone}', [VouchersController::class,'item'])->name('voucher.item');
+Route::get('voucher/{code}', [VouchersController::class,'item'])->name('voucher.item');
 // NEW !!
 Route::get('scanned/{code}', [VouchersController::class,'scanned'])->name('voucher.scanned');
 Route::get('redeemed/{code}', [VouchersController::class,'redeemed'])->name('voucher.redeemed');

@@ -42,13 +42,13 @@ class VouchersController extends Controller
      */
     public function store(Request $request)
     {
-        $voucher = Vouchers::where('phone',$request->phone)->count();
+        $voucher = Vouchers::where('plate_no',strtoupper($request->dk.' '.$request->no.' '.$request->kode))->count();
         if ($voucher > 0) {
             Alert::error('Sorry', 'You have got a voucher');
             return redirect()->back();
         } else {
             $data = new Vouchers;
-            $data->code = 'BS'.$request->phone;
+            $data->code = 'BS'.$request->request->dk.$request->no.$request->kode;
             $data->name = ucwords($request->name);
             $data->phone = $request->phone;
             $data->plate_no = strtoupper($request->dk.' '.$request->no.' '.$request->kode);
@@ -60,8 +60,8 @@ class VouchersController extends Controller
         }
     }
 
-    public function item($phone){
-        $data = Vouchers::where('phone',$phone)->get();
+    public function item($code){
+        $data = Vouchers::where('code',$code)->get();
         return view('voucher.item', compact('data'));
     }
 
