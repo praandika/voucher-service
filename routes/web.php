@@ -21,7 +21,7 @@ use App\Models\Vouchers;
 // });
 
 Route::get('/', [VouchersController::class,'generate'])->name('generate');
-Route::get('voucher', [VouchersController::class,'index'])->name('voucher.index')->middleware('auth.basic');
+Route::get('voucher', [VouchersController::class,'index'])->name('voucher.index')->middleware('auth');
 Route::post('voucher/store', [VouchersController::class,'store'])->name('voucher.store');
 Route::post('voucher/{id}', [VouchersController::class,'update'])->name('voucher.update');
 Route::get('voucher/{code}', [VouchersController::class,'item'])->name('voucher.item');
