@@ -56,7 +56,7 @@ class VouchersController extends Controller
             $data->created_at = Carbon::now('GMT')->format('Y-m-d H:i:s');
             $data->save();
             toast('Yay! you get a voucher','success');
-            return redirect('voucher/BS'.$request->dk.$request->no.$request->kode);
+            return redirect('voucher/BS'.strtoupper($request->dk.$request->no.$request->kode));
         }
     }
 
