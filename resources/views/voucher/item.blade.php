@@ -16,7 +16,7 @@
             <p style="font-size: 30px; text-align: center; font-weight: bold; color: #125D98;">{{ $o->plate_no }}</p>
         </div>
 
-        <div class="value" style="position: relative; bottom: 210px; border:1px solid black;">
+        <div class="value" style="position: relative; bottom: 215px; border:1px solid black;">
             <p style="font-size: 70px; text-align: center; font-weight: bold; color: #EFDAD7;">20%</p>
         </div>
 
