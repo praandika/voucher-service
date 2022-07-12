@@ -12,11 +12,11 @@
 
         <img src="{{ asset('img/discount.png') }}" alt="Discount Service" srcset="" width="300" style="margin-top: -5px; border-radius: 20px;">
 
-        <div class="plate" style="position: relative; bottom: 330px; border:1px solid black;">
+        <div class="plate" style="position: relative; bottom: 340px; border:1px solid black;">
             <p style="font-size: 30px; text-align: center; font-weight: bold; color: #125D98;">{{ $o->plate_no }}</p>
         </div>
 
-        <div class="value" style="position: relative; bottom: 220px; border:1px solid black;">
+        <div class="value" style="position: relative; bottom: 210px; border:1px solid black;">
             <p style="font-size: 70px; text-align: center; font-weight: bold; color: #EFDAD7;">20%</p>
         </div>
 
