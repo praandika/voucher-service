@@ -18,7 +18,9 @@ class CreateVouchersTable extends Migration
             $table->string('code');
             $table->string('name');
             $table->string('phone');
+            $table->string('plate_no');
             $table->enum('status',['available','redeemed']);
+            $table->enum('auth',['no','yes']);
             $table->timestamps();
         });
     }

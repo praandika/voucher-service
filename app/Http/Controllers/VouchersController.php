@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vouchers;
+use App\Models\Pin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Alert;
@@ -53,6 +54,7 @@ class VouchersController extends Controller
             $data->phone = $request->phone;
             $data->plate_no = strtoupper($request->dk.' '.$request->no.' '.$request->kode);
             $data->status = 'available';
+            $data->auth = 'no';
             $data->created_at = Carbon::now('GMT')->format('Y-m-d H:i:s');
             $data->save();
             toast('Yay! you get a voucher','success');
@@ -98,30 +100,56 @@ class VouchersController extends Controller
     {
         $data = Vouchers::find($request->id);
         $data->status = $request->update;
+        $data->auth = $request->auth;
         $data->save();
         return redirect()->back();
     }
 
-    // NEW !!
+    //PROSES REDEEM !!
+    public function enterpin($code){
+        return view('voucher.enterpin', compact('code'));
+    }
+
+    public function prosespin(Request $request, $code){
+        $pin = Pin::where('pin', $request->pin)->count();
+        if ($pin > 0) {
+            Vouchers::where('code', $code)->update([
+                'auth' => 'yes',
+            ]);
+            return redirect('scanned/'.$code);
+        }else{
+            Alert::error('Pin Salah', 'Tunjukan ke staff dealer untuk scan barcode');
+            return redirect('enterpin/'.$code);
+        }
+    }
+
     public function scanned($code){
+        $auth = Vouchers::where([
+            ['code', $code],
+            ['auth', 'yes'],
+        ])->count();
+
         $cek = Vouchers::where([
             ['code', $code],
             ['status', 'available'],
         ])->count();
         
-        if ($cek > 0) {
-            $data = Vouchers::where('code', $code)->update([
-                'status' => 'redeemed',
-            ]);
-            return redirect('redeemed/'.$code);
+        if ($auth > 0) {
+            if ($cek > 0) {
+                Vouchers::where('code', $code)->update([
+                    'status' => 'redeemed',
+                ]);
+                return redirect('redeemed/'.$code);
+            }else{
+                Alert::error('Sorry', 'Your voucher has been redeemed');
+                return redirect()->route('generate');
+            }
         }else{
-            Alert::error('Sorry', 'Your voucher has been redeemed');
-            return redirect()->route('generate');
+            return redirect('enterpin/'.$code);
         }
-        
     }
 
-    // NEW !!
+    // PROSES REDEEM !!
     public function redeemed($code){
         $data = Vouchers::where('code', $code)->get();
         return view('voucher.redeemed', compact('data'));

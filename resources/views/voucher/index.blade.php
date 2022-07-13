@@ -22,6 +22,7 @@
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Status</th>
+                    <th>Auth</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -35,11 +36,14 @@
                     <td>{{ $o->name }}</td>
                     <td>{{ $o->phone }}</td>
                     <td>{{ $o->status }}</td>
+                    <td>{{ $o->auth }}</td>
                     <td>
                         <form action="{{ route('voucher.update', $o->id) }}" method="post">
                             @csrf
                             <input type="hidden" name="update"
                                 value="{{ $o->status == 'available' ? 'redeemed' : 'available' }}">
+                            <input type="hidden" name="auth"
+                                value="{{ $o->auth == 'no' ? 'yes' : 'no' }}">
                             <button type="submit" class="btn btn-success" data-bs-toggle="tooltip"
                                 title="Change Status"><i class="bi bi-arrow-repeat"></i></button>
                         </form>
@@ -47,7 +51,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="7" class="text-center">no data available</td>
+                    <td colspan="8" class="text-center">no data available</td>
                 </tr>
                 @endforelse
             </tbody>
@@ -59,6 +63,7 @@
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Status</th>
+                    <th>Auth</th>
                     <th>Action</th>
                 </tr>
             </tfoot>

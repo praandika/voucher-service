@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPlateNoToVouchersTable extends Migration
+class CreatePinsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddPlateNoToVouchersTable extends Migration
      */
     public function up()
     {
-        Schema::table('vouchers', function (Blueprint $table) {
-            $table->string('plate_no')->after('phone');
+        Schema::create('pins', function (Blueprint $table) {
+            $table->id();
+            $table->string('pin')->unique();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddPlateNoToVouchersTable extends Migration
      */
     public function down()
     {
-        Schema::table('vouchers', function (Blueprint $table) {
-            $table->dropColumn('plate_no');
-        });
+        Schema::dropIfExists('pins');
     }
 }

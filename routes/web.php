@@ -22,10 +22,13 @@ use App\Models\Vouchers;
 
 Route::get('/', [VouchersController::class,'generate'])->name('generate');
 Route::get('voucher', [VouchersController::class,'index'])->name('voucher.index')->middleware('auth');
+
 Route::post('voucher/store', [VouchersController::class,'store'])->name('voucher.store');
 Route::post('voucher/{id}', [VouchersController::class,'update'])->name('voucher.update');
 Route::get('voucher/{code}', [VouchersController::class,'item'])->name('voucher.item');
-// NEW !!
+//PROSES REDEEM
+Route::get('enterpin/{code}', [VouchersController::class,'enterpin'])->name('voucher.enterpin');
+Route::post('prosespin/{code}', [VouchersController::class,'prosespin'])->name('voucher.prosespin');
 Route::get('scanned/{code}', [VouchersController::class,'scanned'])->name('voucher.scanned');
 Route::get('redeemed/{code}', [VouchersController::class,'redeemed'])->name('voucher.redeemed');
 
