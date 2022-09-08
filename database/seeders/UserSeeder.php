@@ -23,6 +23,13 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('bismagroup'),
                 'created_at' => Carbon::now('GMT+8')->format('Y-m-d H:i:s'),
             ],
+            [
+                'name' => 'Admin',
+                'email' => 'admin@admin.com',
+                'username' => 'admin1',
+                'password' => Hash::make('admin'),
+                'created_at' => Carbon::now('GMT+8')->format('Y-m-d H:i:s'),
+            ],
         ]);
     }
 }
