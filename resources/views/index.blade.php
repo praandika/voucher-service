@@ -52,7 +52,7 @@ box-shadow: 2px 2px 7px 3px rgba(240,240,240,1); border-radius: 20px; margin-top
         </form>
 
         <a style="text-decoration: none; color: #125D98; font-weight:bold;" href="https://yamahabismagroup.com"
-            target="_blank">&copy;Yamaha Bisma</a>
+            target="_blank">&copy;Yamaha Bisma | Andika</a>
     </div>
 </div>
 @endsection
