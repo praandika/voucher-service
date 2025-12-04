@@ -10,7 +10,7 @@ box-shadow: 2px 2px 7px 3px rgba(240,240,240,1); border-radius: 20px; margin-top
         <img src="{{ asset('img/logo-bisma.png') }}" alt="Bisma"
             style="width: 100px; display: block; margin-left: auto; margin-right: auto; margin-bottom: 20px; color: #FFFFFF;">
         <h3 style="text-align: center; margin-bottom: 20px;">Anda mendapatkan promo <br><span
-                style="color: red; font-weight: bold;">Diskon Service 20%</span>, Klaim voucher nya sekarang juga!</h3>
+                style="color: red; font-weight: bold;">Diskon Sparepart 5%-10%</span>, Klaim voucher nya sekarang juga!</h3>
         <div class="garis" style="width: 100%; border: 1px dashed #BEBEBE; margin-bottom: 20px;"></div>
         <form action="{{ route('voucher.store') }}" method="post" enctype="multipart/form-data">
             @csrf

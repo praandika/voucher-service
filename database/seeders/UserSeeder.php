@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Admin',
-                'email' => 'admin@admin.com',
+                'email' => 'admin@admin1.com',
                 'username' => 'admin1',
                 'password' => Hash::make('admin'),
                 'created_at' => Carbon::now('GMT+8')->format('Y-m-d H:i:s'),
